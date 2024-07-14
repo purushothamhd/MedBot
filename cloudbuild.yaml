@@ -1,4 +1,6 @@
-# Use a pre-built Python 3.8 based image
+substitutions:
+  _PROJECT_ID: 'your-project-id'  # Replace with placeholder
+
 steps:
 - name: 'gcr.io/cloud-builders/python38'
   args: ['pip', 'install', '-r', 'requirements.txt']
@@ -6,5 +8,4 @@ steps:
 - name: 'gcr.io/cloud-builders/pack'  # Cloud Build Pack for Streamlit
   args: ['--path', '.']
 
-# Specify the entry point for the application
-images: ['gcr.io/PROJECT_ID/medbot:latest']
+images: ['gcr.io/$_PROJECT_ID/medbot:latest']
