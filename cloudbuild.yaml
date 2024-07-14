@@ -1,0 +1,10 @@
+# Use a pre-built Python 3.8 based image
+steps:
+- name: 'gcr.io/cloud-builders/python38'
+  args: ['pip', 'install', '-r', 'requirements.txt']
+
+- name: 'gcr.io/cloud-builders/pack'  # Cloud Build Pack for Streamlit
+  args: ['--path', '.']
+
+# Specify the entry point for the application
+images: ['gcr.io/PROJECT_ID/medbot:latest']
